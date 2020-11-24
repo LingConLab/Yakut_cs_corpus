@@ -44,7 +44,6 @@ class TextProcessor:
         sentences = self.splitter.split(tokens, s)
         self.cleaner.clean_tokens(tokens)
         nTokens, nWords, nAnalyzed = self.parser.analyze(sentences, lang=lang)
-        print(sentences)
         return sentences, nTokens, nWords, nAnalyzed
 
     @staticmethod
@@ -295,7 +294,6 @@ class Txt2JSON:
         Write the JSON text to fnameTarget either as plain text
         or as gzipped text, dependeing on the settings.
         """
-        print(textJSON)
         # fnameTarget = '../json'
         fTarget = open(fnameTarget, 'w', encoding='utf-8')
         json.dump(textJSON, fp=fTarget, ensure_ascii=False,
@@ -357,7 +355,6 @@ class Txt2JSON:
         fSrc = open(fnameSrc, 'r', encoding='utf-8')
         text = fSrc.read()
         fSrc.close()
-        print('b')
 
         textJSON['sentences'], nTokens, nWords, nAnalyze = self.tp.process_string(text)
         self.write_output(fnameTarget, textJSON)
@@ -378,8 +375,7 @@ class Txt2JSON:
             srcDir = '../eaf'
         else:
             srcDir = '../eaf'
-        targetDir = '../json'
-        print(targetDir)
+        targetDir = '../corpus/conlab_yakut'
         for path, dirs, files in os.walk(srcDir):
             for filename in files:
                 if not filename.lower().endswith('.' + self.srcExt):
@@ -397,7 +393,6 @@ class Txt2JSON:
                 fnameTarget = self.rxStripExt.sub(fextTarget, fnameTarget)
                 self.log_message('Processing ' + fnameSrc + '...')
                 curTokens, curWords, curAnalyzed = self.convert_file(fnameSrc, fnameTarget)
-                print('sfv')
                 nTokens += curTokens
                 nWords += curWords
                 nAnalyzed += curAnalyzed
@@ -515,22 +510,24 @@ class Eaf2JSON(Txt2JSON):
         in conversion_settings.json.
         """
         annoTierRules = {}
+        self.corpusSettings['span_annotation_tiers'] = ''
         if ('LINGUISTIC_TYPE_REF' in tierNode.attrib and
                 tierNode.attrib['LINGUISTIC_TYPE_REF'] in self.corpusSettings['span_annotation_tiers']):
             annoTierRules = self.corpusSettings['span_annotation_tiers'][tierNode.attrib['LINGUISTIC_TYPE_REF']]
         else:
-            for k, v in self.corpusSettings['span_annotation_tiers'].items():
-                if not k.startswith('^'):
-                    k = '^' + k
-                if not k.endswith('$'):
-                    k += '$'
-                try:
-                    rxTierID = re.compile(k)
-                    if rxTierID.search(tierNode.attrib['TIER_ID']) is not None:
-                        annoTierRules = v
-                        break
-                except:
-                    continue
+            if self.corpusSettings['span_annotation_tiers']:
+                for k, v in self.corpusSettings['span_annotation_tiers'].items():
+                    if not k.startswith('^'):
+                        k = '^' + k
+                    if not k.endswith('$'):
+                        k += '$'
+                    try:
+                        rxTierID = re.compile(k)
+                        if rxTierID.search(tierNode.attrib['TIER_ID']) is not None:
+                            annoTierRules = v
+                            break
+                    except:
+                        continue
         if len(annoTierRules) <= 0 or 'sentence_meta' not in annoTierRules:
             return tierNode.attrib['TIER_ID'], None
         return tierNode.attrib['TIER_ID'], annoTierRules['sentence_meta']
@@ -631,6 +628,7 @@ class Eaf2JSON(Txt2JSON):
         for alignment in sentAlignments:
             self.fragmentize_src_alignment(alignment)
         sent['src_alignment'] = sentAlignments
+
 
     def add_punc(self, words, text, prevText, startOffset):
         """
@@ -813,7 +811,6 @@ class Eaf2JSON(Txt2JSON):
         if ('span_annotation_tiers' not in self.corpusSettings
                 or len(self.corpusSettings['span_annotation_tiers']) <= 0):
             return
-        annoTierID, annoTierType = self.get_span_tier_id(tierNode)
         if annoTierType is None or len(annoTierType) <= 0:
             return
         if annoTierType not in self.spanAnnoTiers:
@@ -976,6 +973,7 @@ class Eaf2JSON(Txt2JSON):
         metadata values, depending on what is said in corpusSettings['span_annotation_tiers'].
         Modify sentences, do not return anything.
         """
+        
         sentences.sort(key=lambda s: s['src_alignment'][0]['true_off_start_src'])
         for annoTierType in self.spanAnnoTiers:
             curRules = {}
@@ -1084,6 +1082,35 @@ class Eaf2JSON(Txt2JSON):
         mainTiers = []
         alignedTiers = []
         for tierNode in srcTree.xpath('/ANNOTATION_DOCUMENT/TIER'):
+            # if tierNode.attrib['TIER_ID'].endswith('мета'):
+            #     if not alignedTier:
+            #         if segData[2] is None or segData[3] is None:
+            #             continue
+            #         tli1 = segData[2]
+            #         tli2 = segData[3]
+            #     elif segData[1] is not None:
+            #         aID = segData[1]
+            #         pID, tli1, tli2 = aID2pID[aID]
+            #     else:
+            #         continue
+
+            #     sentAlignments = []
+            #     ts1 = self.tlis[tli1]['time']
+            #     ts2 = self.tlis[tli2]['time']
+            #     print(ts1)
+                # sentAlignments.append({'off_start_src': ts1,
+                #                'off_end_src': ts2,
+                #                'true_off_start_src': float(ts1) / EAF_TIME_MULTIPLIER,
+                #                'off_start_sent': 0,
+                #                'off_end_sent': len(sent['text']),
+                #                'mtype': 'audio',
+                #                'src_id': ts1 + '_' + ts2,
+                #                'src': srcFile})
+                # for alignment in sentAlignments:
+                #     self.fragmentize_src_alignment(alignment)
+                # sent['src_alignment'] = sentAlignments
+
+                # print()
             for tierRegex in self.corpusSettings['main_tiers']:
                 if not tierRegex.startswith('^'):
                     tierRegex = '^' + tierRegex
@@ -1192,7 +1219,6 @@ class Eaf2JSON(Txt2JSON):
                     del word['n_orig']
 
     def convert_file(self, fnameSrc, fnameTarget):
-        print('g')
         curMeta = self.get_meta(fnameSrc)
         textJSON = {'meta': curMeta, 'sentences': []}
         nTokens, nWords, nAnalyzed = 0, 0, 0
@@ -1226,7 +1252,6 @@ class Eaf2JSON(Txt2JSON):
         self.add_sentence_meta(textJSON['sentences'], curMeta)
         self.clean_up_sentences(textJSON['sentences'])
         self.write_output(fnameTarget, textJSON)
-        print('a')
         return nTokens, nWords, nAnalyzed
 
     def process_corpus(self, cutMedia=True):

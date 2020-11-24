@@ -46,7 +46,7 @@
     "рус",
     "якт"
   ],
-  "languages": ["yakut", "russian"],
+  "languages": ["yakut", "yak_words", "russian", "rus_words", "meta"],
   "transliterations": ["original", "IPA"],
   "input_methods": ["normal"],
   "interface_languages": {"en": "English", "ru": "Russian"},

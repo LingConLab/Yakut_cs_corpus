@@ -10,18 +10,17 @@
     "speakers",
     "date"
   ],
-  "languages": ["yakut", "russian"],
+  "languages": ["yakut", "yak_words", "russian", "rus_words", "meta"],
   "tier_languages": {
-    ".*_ЭДЕ.*": "yakut",
-    ".*перевод.*": "russian"
+    ".*ЭДЕ.*": "yakut",
+    ".*перевод.*": "russian",
+    ".*рус.*": "rus_words",
+    ".*якт.*": "yak_words",
+    ".*мета.*": "meta"
     },
-  "main_tiers": [".*_ЭДЕ.*"],
-  "aligned_tiers": [".*перевод.*"],
-  "analysis_tiers": {
-    ".*_рус.*": "рус",
-    ".*_якт.*": "якт",
-    ".*_мета.*": "мета"
-  },
+  "main_tiers": [".*ЭДЕ.*"],
+  "aligned_tiers": [".*якт.*", ".*перевод.*", ".*рус.*", ".*мета.*"],
+  "analysis_tiers": {},
   "meta_files_ext": true,
   "meta_files_dir": false,
   "meta_files_case_sensitive": true,

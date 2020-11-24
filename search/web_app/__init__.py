@@ -1038,6 +1038,7 @@ def find_sentences_json(page=0):
     """
     Find sentences and change current options using the query in request.args.
     """
+
     if request.args and page <= 0:
         query = copy_request_args()
         page = 1
@@ -1051,6 +1052,7 @@ def find_sentences_json(page=0):
         query = get_session_data('last_query')
         wordConstraints = get_session_data('word_constraints')
     set_session_data('page', page)
+    # print(query)
 
     nWords = 1
     negWords = []
@@ -1062,6 +1064,7 @@ def find_sentences_json(page=0):
                     negWords.append(iQueryWord)
 
     docIDs = None
+
     if 'doc_ids' not in query and 'sent_ids' not in query:
         docIDs = subcorpus_ids(query)
         if docIDs is not None:
@@ -1085,6 +1088,7 @@ def find_sentences_json(page=0):
                                 searchOutput='sentences',
                                 query_size=1,
                                 distances=wordConstraints)
+        # print(esQuery)
         hits = sc.get_sentences(esQuery)
         if ('hits' not in hits
                 or 'total' not in hits['hits']
@@ -1102,6 +1106,7 @@ def find_sentences_json(page=0):
             iterator = sc.get_all_sentences(esQuery)
             query['sent_ids'] = sc.qp.filter_sentences(iterator, wordConstraints, nWords=nWords)
             set_session_data('last_query', query)
+
 
     queryWordConstraints = None
     if (len(wordConstraints) > 0
@@ -1125,6 +1130,8 @@ def find_sentences_json(page=0):
 
     # return esQuery
     hits = sc.get_sentences(esQuery)
+
+
     if nWords > 1 and 'hits' in hits and 'hits' in hits['hits']:
         for hit in hits['hits']['hits']:
             sentView.filter_multi_word_highlight(hit, nWords=nWords, negWords=negWords)
@@ -1140,8 +1147,9 @@ def find_sentences_json(page=0):
             and (not get_session_data('distance_strict')
                  or distance_constraints_too_complex(wordConstraints))
             and 'hits' in hits and 'hits' in hits['hits']):
-        for hit in hits['hits']['hits']:
+
             hit['toggled_on'] = sc.qp.wr.check_sentence(hit, wordConstraints, nWords=nWords)
+
     if docIDs is not None and len(docIDs) > 0:
         hits['subcorpus_enabled'] = True
     return hits
