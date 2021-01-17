@@ -2,7 +2,7 @@
   "corpus_name": "conlab_yakut",
   "input_format": "json",
   "debug": false,
-  "media": false,
+  "media": true,
   "media_length": 60,
   "max_context_expand": 4,
   "max_distance_filter": 200000,
@@ -13,27 +13,18 @@
     "filename",
     "title",
     "speakers",
+    "duration",
     "date"
   ],
   "sentence_meta": [
     "speaker",
-    "date"
+    "year_of_birth",
+    "sex"
   ],
   "search_meta": {
     "columns": [
       [
-        {"type": "input_text", "name": "author", "placeholder": "Author"},
-        {"type": "input_text", "name": "title", "placeholder": "Title"},
-        {"type": "separator"},
-        {"type": "input_number", "name": "year_from", "placeholder": "Year: from"},
-        {"type": "input_number", "name": "year_to", "placeholder": "Year: to"}
-      ],
-      [
-        {"type": "input_text", "name": "genre", "placeholder": "Genre"},
-        {"type": "option", "name": "genre", "value": "fiction", "text": "fiction"},
-        {"type": "option", "name": "genre", "value": "nonfiction", "text": "non-fiction"},
-        {"type": "option", "name": "genre", "value": "press", "text": "press"},
-        {"type": "option", "name": "genre", "value": "blog", "text": "blog"}
+        {"type": "input_text", "name": "title", "placeholder": "Title"}
       ]
     ],
     "stat_options": [
@@ -43,43 +34,55 @@
   },
   "word_fields":
   [
-    "рус",
-    "якт"
   ],
-  "languages": ["yakut", "yak_words", "russian", "rus_words", "meta"],
-  "transliterations": ["original", "IPA"],
+  "languages": ["yakut", "inter", "intra"],
   "input_methods": ["normal"],
   "interface_languages": {"en": "English", "ru": "Russian"},
   "all_language_search_enabled": true,
-  "gloss_search_enabled": true,
-  "ambiguous_analyses": true,
+  "gloss_search_enabled": false,
+  "ambiguous_analyses": false,
   "lang_props":
   {
     "yakut":
     {
-      "gloss_shortcuts": {
-        "case": "(obl(\\.pl)?|abs|erg|gen|abl|ins)",
-        "tense": "(pst|fut|prs)"
-      },
-      "gr_fields_order": ["tense", "person", "number", "case", "poss"],
-      "gloss_selection": {
-        "columns": [
-          [
-            {"type": "gloss", "value": "CASE", "tooltip": "Any&nbsp;case&nbsp;marker"},
-            {"type": "gloss", "value": "ABS", "tooltip": "Absolutive case"},
-            {"type": "gloss", "value": "ERG", "tooltip": "Ergative case"}
-          ]
-        ]
-      },
       "gramm_selection": {
         "columns": [
           [
-            {"type": "header", "value": "Parts of speech"},
-            {"type": "gramm", "value": "N", "category": "pos", "tooltip": "Noun"},
-            {"type": "gramm", "value": "V", "category": "pos", "tooltip": "Verb"},
-            {"type": "gramm", "value": "A", "category": "pos", "tooltip": "Adjective"},
-            {"type": "separator"}
-          ]
+              {"type": "header", "value": "Intrasentential"},
+              {"type": "gramm", "value": "N", "category": "N", "tooltip": "noun"},
+              {"type": "gramm", "value": "NP", "category": "NP", "tooltip": "noun phrase"},
+              {"type": "gramm", "value": "V", "category": "V", "tooltip": "verb"},
+              {"type": "gramm", "value": "VP", "category": "VP", "tooltip": "verb phrase"},
+              {"type": "gramm", "value": "ADV", "category": "ADV", "tooltip": "adverb"},
+              {"type": "gramm", "value": "ADVP", "category": "ADVP", "tooltip": "adverb phrase"},
+              {"type": "gramm", "value": "ADJ", "category": "ADJ", "tooltip": "adjective"},
+              {"type": "gramm", "value": "AUX", "category": "ADJ", "tooltip": "auxiliary"}
+              ],
+          [
+              {"type": "gramm", "value": "ADJP", "category": "ADJP", "tooltip": "adjective phrase"},
+              {"type": "gramm", "value": "IC", "category": "IC", "tooltip": "independent clause"},
+              {"type": "gramm", "value": "CONJ", "category": "CONJ", "tooltip": "conjunctive clause"},
+              {"type": "gramm", "value": "COORD", "category": "COORD", "tooltip": "coordinative clause"},
+              {"type": "gramm", "value": "QP", "category": "QP", "tooltip": "question particle"},
+              {"type": "gramm", "value": "MODP", "category": "MODP", "tooltip": "modal particle"},
+              {"type": "gramm", "value": "PP", "category": "PP", "tooltip": "prepositional phrase"},
+              {"type": "gramm", "value": "STOP", "category": "ADJ", "tooltip": "utterance abruption"}
+            ],
+          [
+              {"type": "header", "value": "Both"},
+              {"type": "gramm", "value": "Q", "category": "Q", "tooltip": "question"},
+              {"type": "gramm", "value": "DE", "category": "DE", "tooltip": "discourse entity"},
+              {"type": "gramm", "value": "PRF", "category": "PRF", "tooltip": "profanity"},
+              {"type": "gramm", "value": "REP", "category": "PRF", "tooltip": "utterance repetition"},
+              {"type": "gramm", "value": "P", "category": "PRF", "tooltip": "preposition"}
+          ],
+                    [
+              {"type": "header", "value": "Intersentential"},
+              {"type": "gramm", "value": "S", "category": "S", "tooltip": "sentence"},
+              {"type": "gramm", "value": "INTJ", "category": "INTJ", "tooltip": "interjection"},
+              {"type": "gramm", "value": "IDIOM", "category": "IDIOM", "tooltip": "idiom"},
+              {"type": "gramm", "value": "QUOTE", "category": "QUOTE", "tooltip": "quote"}
+            ]
         ]
       }
     }

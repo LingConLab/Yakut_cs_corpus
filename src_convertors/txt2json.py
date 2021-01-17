@@ -41,7 +41,7 @@ class Txt2JSON:
         if os.path.exists(self.settingsDir):
             self.load_settings(corpusSpecific=False)
             if len(self.corpusSettings['corpus_name']) > 0:
-                self.corpusSettings['corpus_dir'] = '../eaf'
+                self.corpusSettings['corpus_dir'] = '../corpus'
 
         self.settingsDir = os.path.join(self.corpusSettings['corpus_dir'],
                                         settingsDir)
@@ -52,7 +52,7 @@ class Txt2JSON:
                                             'conf')
         self.load_settings(corpusSpecific=True)
 
-        fCategories = open(os.path.join('conf_conversion', 'categories.json'), 'r',
+        fCategories = open(os.path.join('conf', 'categories.json'), 'r',
                            encoding='utf-8-sig')
         self.categories = json.loads(fCategories.read())
         fCategories.close()
@@ -77,7 +77,7 @@ class Txt2JSON:
                            encoding='utf-8-sig')
         except IOError:
             # Obsolete settings file name; I keep it here for backward compatibility
-            fCorpus = open(os.path.join(self.settingsDir, 'corpus.json'), 'r',
+            fCorpus = open(os.path.join('conf', 'corpus.json'), 'r',
                            encoding='utf-8-sig')
         localSettings = json.loads(fCorpus.read())
         if corpusSpecific:
@@ -210,7 +210,7 @@ class Txt2JSON:
         or as gzipped text, dependeing on the settings.
         """
         
-        fnameTarget = '../corpus'
+        # fnameTarget = '../json/'
         fTarget = open(fnameTarget, 'w', encoding='utf-8')
         json.dump(textJSON, fp=fTarget, ensure_ascii=False,
                   indent=self.corpusSettings['json_indent'])
@@ -288,10 +288,10 @@ class Txt2JSON:
         self.load_meta()
         nTokens, nWords, nAnalyzed = 0, 0, 0
         if self.srcExt != 'json':
-            srcDir = os.path.join(self.corpusSettings['corpus_dir'], self.srcExt)
+            srcDir = '../eaf'
         else:
-            srcDir = os.path.join(self.corpusSettings['corpus_dir'], 'json_input')
-        targetDir = os.path.join(self.corpusSettings['corpus_dir'], 'json')
+            srcDir = '../eaf'
+        targetDir = os.path.join(self.corpusSettings['corpus_dir'], 'conlab_yakut')
         for path, dirs, files in os.walk(srcDir):
             for filename in files:
                 if not filename.lower().endswith('.' + self.srcExt):

@@ -22,9 +22,41 @@ msgstr ""
 # ********  Please fill in the following strings:  ********
 
 msgid "corpus_title"
-msgstr "(ВВЕДИТЕ НАЗВАНИЕ КОРПУСА В messages.po)"
+msgstr "Якутско-русский корпус переключения кода"
 
 # Language names for the dropdown menu in search panel (please add all missing languages that you have in the corpus):
+
+
+
+msgid "langname_yakut"
+msgstr "Якутский"
+
+msgid "Translation"
+msgstr "Перевод"
+
+msgid "Yakut letters"
+msgstr "Якутские буквы"
+
+msgid "Code-switching"
+msgstr "Переключение кода"
+
+msgid "metafield_speakers"
+msgstr "говорящие"
+
+msgid "metafield_duration"
+msgstr "длительность"
+
+msgid "metafield_date"
+msgstr "дата"
+
+msgid "langname_inter"
+msgstr "Intersentential"
+
+msgid "langname_intra"
+msgstr "Intrasentential"
+
+msgid "metafield_year_of_birth"
+msgstr "Год рождения"
 
 msgid "langname_udmurt"
 msgstr "удмуртский"
@@ -524,6 +556,12 @@ msgstr "№"
 #: templates/index.html:52
 msgid "Word:"
 msgstr "Слово:"
+
+msgid "Translation:"
+msgstr "Перевод:"
+
+msgid "Tag:"
+msgstr "Тэг:"
 
 #: templates/index.html:53
 msgid "Lemma:"

@@ -4,6 +4,7 @@
 <title>{{ _('corpus_title') }} - {{ _('Corpus search page') }}</title>
 <link rel="stylesheet" type="text/css" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="static/css/search.css">
+<link href="static/css/keyboard.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -27,6 +28,53 @@ var nothingFoundCaption = "{{ _('Nothing found.') }}";
 var autoSwitchTiers = {{ auto_switch_tiers|safe }};
 var wordFieldsByTier = {{ word_fields_by_tier|safe }};
 </script>
+
+<script type="text/javascript">
+
+	function keyboard(id){
+		elem = document.getElementById(id);
+		window.key = id;		
+	    coords = elem.getBoundingClientRect();
+	    var top_modal = coords.top - 14;
+	    var left_modal = coords.left + 200;
+	    var id_new = id.replace(/[0-9]/g, '');
+
+	    if (id_new == 'wf'){
+	    	var other = 'lex';
+	    } else {
+	    	var other = 'wf';
+	    };
+	    $('#popover_' + id_new).css({'margin-top': top_modal, 'margin-left': left_modal});
+	    $('#popover_' + other).fadeOut('fast');
+		$('#popover_' + id_new).toggle();
+		
+		$('#keyboard_' + id_new + ' li').click(function(e){
+			
+		var $this = $(this),
+        	character = $this.text(); 
+        	var $write = $('#' + window.key);
+        $write.val($('#' + window.key).val() + character);
+        character.val() = '';
+        }); 
+	}
+
+
+document.addEventListener('click', function(event) {
+	var search = document.getElementById(window.key);
+	var wf = document.getElementById('popover_wf');
+	var lex = document.getElementById('popover_lex');
+  	var isClickInsideSearch = search.contains(event.target);
+  	var isClickInsideWf = wf.contains(event.target);
+  	var isClickInsideLex = lex.contains(event.target);
+
+	if (!isClickInsideSearch && !isClickInsideWf && !isClickInsideLex) {
+	    $('#popover_wf').fadeOut('fast');
+	    $('#popover_lex').fadeOut('fast');
+  }
+});
+
+</script>
+
 <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,400i" rel="stylesheet"> -->
 {% if media %}
 <link href="https://vjs.zencdn.net/5.19.2/video-js.css" rel="stylesheet">
@@ -63,6 +111,23 @@ var wordFieldsByTier = {{ word_fields_by_tier|safe }};
 <span id="show_dictionary" class="glyphicon glyphicon-book" aria-hidden="true"><span class="tooltip_prompt">{{ _('Show dictionary') }}</span></span>
 {% endif %}
 <span id="show_help" class="glyphicon glyphicon-question-sign" aria-hidden="true"><span class="tooltip_prompt">{{ _('Show help') }}</span></span>
+
+<div onclick="$(this).fadeOut('fast');" class="popover fade right in" role="tooltip" id="popover_wf" style="top: -52px; left: -28.625px; display: none;"><div class="arrow" style="top: 50%;"></div><h3 class="popover-title" style="display: none;"></h3><div class="popover-content">
+                    <ul id="keyboard_wf" class="keyboard">
+                    <p>{{ _('Yakut letters') }}</p>
+                    <li class="symbol"><span class="off">ү</span></li>
+                    <li class="symbol"><span class="off">ө</span></li>
+                    <li class="symbol"><span class="off">ҥ</span></li>
+                    <li class="symbol"><span class="off">ҕ</span></li>
+                    <li class="symbol"><span class="off">һ</span></li>
+                    <p>{{ _('Code-switching') }}</p>
+                    <li class="symbol"><span class="off"><abbr title="to Yakut">y</abbr></span></li>
+                    <li class="symbol"><span class="off"><abbr title="to Russian">r</abbr></span></li>
+                    <li class="symbol"><span class="off"><abbr title="to English">e</abbr></span></li>
+                    </ul>
+                </div></div>
+
+
 {% if citation %}
 <span id="cite_corpus"><span class="tooltip_prompt">{{ _('How to cite') }}</span><img id="cite_corpus_img" src="static/img/cite.png"></span>
 {% endif %}
@@ -87,32 +152,19 @@ var wordFieldsByTier = {{ word_fields_by_tier|safe }};
 						<div class="word_search" id="first_word">
 							<div class="word_search_l">
 								<div class="query_word_header"><div class="circle circle_w1"></div>{{ _('Word_header') }} {{ _('Number_sign') }}1</div>
-								<span id="_label_wf1" class="search_label">{{ _('Word:') }}</span> <input type="text" class="search_input" name="wf1" id="wf1"><br>
-								<span id="_label_lex1" class="search_label">{{ _('Lemma:') }}</span> <input type="text" class="search_input" name="lex1" id="lex1"><br>
-								<span id="_label_gr1" class="search_label">{{ _('Grammar:') }}</span> <input type="text" class="search_input gram_selector_input" name="gr1" id="gr1"><span class="gram_selector_link glyphicon glyphicon-edit" data-field="gr" data-nword="1"></span><br>
+								<span id="_label_wf1" class="search_label">{{ _('Word:') }}</span> <input type="text" class="search_input" name="wf1" id="wf1" onclick="keyboard(this.id);"><br>
+								<!-- <input type="text" class="search_input" name="wf1" id="wf1" onclick="keyboard(this.id);"><br> -->
+								<span id="_label_lex1" class="search_label">{{ _('Translation:') }}</span> <input type="text" class="search_input" name="lex1" id="lex1"><br>
+								<span id="_label_gr1" class="search_label">{{ _('Tag:') }}</span> <input type="text" class="search_input gram_selector_input" name="gr1" id="gr1"><span class="gram_selector_link glyphicon glyphicon-edit" data-field="gr" data-nword="1"></span><br>
 								<input type="hidden" class="search_input" name="w_id1" id="w_id1">
 								<input type="hidden" class="search_input" name="l_id1" id="l_id1">
-								{% if gloss_search_enabled %}
-								<span id="_label_gloss1" class="search_label">{{ _('Gloss:') }}</span> <input type="text" class="search_input gram_selector_input" name="gloss_index1" id="gloss_index1"><span class="gram_selector_link glyphicon glyphicon-edit" data-field="gloss_index" data-nword="1"></span><br>
-								{% endif %}
 								<hr class="separator">
 								<div class="add_word_fields"></div>
-								{% if languages|length > 1 %}
 									{{ _('Language/tier:') }} <select name="lang1" id="lang1" class="tier_select search_input">
 									{% for lang in languages %}
 									<option value="{{ lang }}">{{ _('langname_' + lang) }}</option>
 									{% endfor %}
-									{% if all_lang_search %}
-									<option value="all">{{ _('langname_all') }}</option>
-									{% endif %}
 									</select>
-								{% else %}
-									<select name="lang1" id="lang1" style="display: none; visibility: hidden; height: 0px">
-									{% for lang in languages %}
-									<option value="{{ lang }}">{{ _('langname_' + lang) }}</option>
-									{% endfor %}
-									</select>
-								{% endif %}
 							</div>
 							<div class="word_search_r">
 								{% if negative_search_enabled %}
@@ -150,8 +202,9 @@ var wordFieldsByTier = {{ word_fields_by_tier|safe }};
 						</div>
 						<div class="options_column">
 						{{ _('Viewing mode:') }} <select name="viewing_mode" id="viewing_mode" class="search_input">
-							<option value="standard">{{ _('view_standard') }}</option>
 							<option value="glossed">{{ _('view_glossed') }}</option>
+							<option value="standard">{{ _('view_standard') }}</option>
+							
 						</select><br>
 						{% if transliterations and transliterations|length > 1 %}
 							{{ _('Transliteration: ') }}<select name="translit" id="translit" class="search_input">

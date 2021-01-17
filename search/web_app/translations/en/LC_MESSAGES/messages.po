@@ -21,9 +21,31 @@ msgstr ""
 # ********  Please fill in the following strings:  ********
 
 msgid "corpus_title"
-msgstr "(INSERT CORPUS TITLE IN messages.po)"
+msgstr "Yakut-Russian Code-Switching Corpus"
 
 # Language names for the dropdown menu in search panel (please add all missing languages that you have in the corpus):
+
+
+msgid "langname_yakut"
+msgstr "Yakut"
+
+msgid "langname_inter"
+msgstr "Intersentential"
+
+msgid "langname_intra"
+msgstr "Intrasentential"
+
+msgid "metafield_year_of_birth"
+msgstr "Year of birth"
+
+msgid "metafield_speakers"
+msgstr "speakers"
+
+msgid "metafield_duration"
+msgstr "duration"
+
+msgid "metafield_date"
+msgstr "date"
 
 msgid "langname_udmurt"
 msgstr "Udmurt"
