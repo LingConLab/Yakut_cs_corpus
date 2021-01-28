@@ -18,7 +18,7 @@
     ".*intra.*": "intra"
     },
   "main_tiers": [".*ЭДЕ.*"],
-  "aligned_tiers": [".*ЭДЕ2.*", ".*inter.*", ".*intra.*"],
+  "aligned_tiers": [".*inter.*", ".*intra.*"],
   "analysis_tiers": {
     ".*слова.*": "word",
     ".*мета.*": "gramm",
