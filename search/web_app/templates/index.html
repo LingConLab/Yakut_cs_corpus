@@ -88,12 +88,7 @@ document.addEventListener('click', function(event) {
 {% include "head_add.html" ignore missing %}
 </head>
 <body>
-{% include "header.html" ignore missing %}
-<p id="header"><span id="corpus_title">
-{% if start_page_url %}<a href="{{ start_page_url }}">{% endif %}
-{{ _('corpus_title') }}
-{% if start_page_url %}</a>{% endif %}
-</span> {% if debug %}{{ _('Corpus name') }}: {{ corpus_name }}.{% endif %}
+<a href="../cs_yakut"><p id="header"><span id="corpus_title">{{ _('corpus_title') }}</span> {% if debug %}{{ _('Corpus name') }}: {{ corpus_name }}.{% endif %}</a>
 {% if locales|length > 1 %}
 &nbsp;&nbsp;
 {% for l_code in locales %}

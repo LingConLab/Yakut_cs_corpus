@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ _('corpus_title') }}</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type='text/javascript' src='static/bootstrap-3.3.7-dist/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='static/js/result_parser.js'></script>
+<script type='text/javascript' src='static/js/json_loaders.js'></script>
+<script type='text/javascript' src='static/js/query_share_load.js'></script>
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/resume.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="static/img/favicon.jpg">
+
+  </head>
+
+  <body id="page-top">
+
+    <p style="padding-left:2.7rem" id="about">
+    {% if locales|length > 1 %}
+&nbsp;&nbsp;
+{% for l_code in locales %}
+  <span class="locale" title="{{ locales[l_code] }}">{{ l_code|upper }}</span>&nbsp;
+  {% if not last %}
+    |&nbsp;
+  {% else %}
+    |&nbsp;&nbsp;
+  {% endif %}
+{% endfor %}
+{% endif %}
+    </p>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">{{ _('corpus_title') }}</span>
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="static/img/emblem.jpg" alt="">
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">{{ _('Главная') }}</a>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#instruction">{{ _('Как пользоваться корпусом') }}</a>
+          </li>
+                    </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#cats">{{ _('Список синтаксических категорий') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="./search">{{ _('Поиск') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#consist">{{ _('Состав корпуса') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#authors">{{ _('Создатели') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contacts">{{ _('Контакты') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#cite">{{ _('Как процитировать корпус') }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#lit">{{ _('Литература') }}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex d-column">
+        <div class="my-auto">
+          <h2 class="mb-0">{{ _('Якутско-русский корпус') }}<br>
+            <span class="text-primary" style="color: #d9241b !important">{{ _('переключения кода') }}</span>
+          </h2>
+          <br>
+          <br>
+          <p class="lead" align="justify">{{ _('Переключение кода — чередование двух языков в пределах дискурса — характерная черта языкового поведения билингвов. В России билингвизм особенно распространен на территории республик, где наряду с русским язык титульной нации может быть утвержден на государственном уровне. 
+Предыдущие исследования по переключению кода (например, Poplack 1980) показали, что использование данных, полученных при записи спонтанной речи билингвов, является важным аспектом инструментом для изучения переключения кода. Тем не менее, корпусов билингвальной речи в открытом доступе практически нет, что объясняется высокой трудоемкостью создания такого корпуса (Gullberg et al. 2009). Корпус представляет собой запись беседы якутско-русских билингвов, записанной в декабре 2018 года в г. Якутске в ходе игры в “Монополию”. Корпус состоит из аудиофайлов и выровненных со звуком  расшифровок, размеченных по ряду признаков. 
+') }}</p>
+
+          <p class="lead" align="justify">{{ _('Стратегия разметки корпуса разработана А. Петуховой в ходе проекта, осуществленного в Школе лингвистики НИУ ВШЭ.') }}</p>
+<p class="lead" align="justify">{{ _('Для каждого говорящего размечены: высказывание — элементарная дискурсивная единица (ЭДЕ), слова на русском языке, слова на якутском языке (а также их перевод на русский язык) и синтаксические категории составляющих на границе переключения кода (см. Список синтаксических категорий). Отдельно были отмечены высказывания, произнесенные вне беседы, например, во время телефонного разговора, и высказывания, представляющие собой специальные термины игры и чтение вслух правил игры и игральных карточек . Так как информантам была предоставлена русскоязычная версия «Монополии», и язык игры был изначально задан, у говорящих не было возможности свободно выбирать язык игровой партии. Высказывания, относящиеся к игре, не принадлежат какому-либо языку.
+Фразы на якутском языке снабжены переводом.') }}</p>
+
+          <p class="lead" align="justify">{{ _('Проект Якутско-русского корпуса переключения кода поддерживается ') }}<a href="ilcl.hse.ru">{{ _('Международной лабораторией языковой конвергенции Высшей Школы Экономики') }}</a>{{ _('. Корпус создан в рамках Программы фундаментальных исследований Национального исследовательского университета «Высшая школа экономики» (НИУ ВШЭ) и с использованием средств субсидии в рамках государственной поддержки ведущих университетов Российской Федерации «5-100».') }}</p>
+          <br>
+          <a class="btn btn-primary btn-xl js-scroll-trigger btn-main" href="./search">{{ _('К поиску') }}</a>
+          <br>
+          <br>
+          
+
+        </div>
+      </section>
+
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="instruction">
+        <div class="my-auto">
+          <h3 class="mb-3">{{ _('Как пользоваться корпусом') }}</h3>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <p class="lead">{{ _('Этот корпус относится к группе корпусов, использующих поисковую платформу') }} <a href="https://bitbucket.org/tsakorpus/tsakorpus/src/master/" target="_blank" style="color: #d9241b !important">tsakorpus</a>. {{ _('Инструкция с описанием общих технических возможностей поиска в корпусах этого типа содержится в разделе «Справка» (кнопка с вопросительным знаком в правом верхнем углу страницы поиска). Ниже описаны некоторые правила, специфические для данного корпуса.') }}</p>
+            
+
+              <p class="lead">{{ _('Поиск по корпусу представлен в трёх уровнях разметки: якутский, межсентенциальный (переключение кода между высказываниями), внутрисентенциальный (переключение кода внутри высказывания). При поиске по якутскому языку можно искать по точному вхождению (словоформе) внутри ЭДЕ, по точному вхождению в переводе ЭДЕ и по синтаксическим категориям (о них см. раздел “Список синтаксических категорий”). Например, чтобы найти все слова на букву к, которые имеют категорию N (существительное), надо в поле “Слово” ввести к*, а в поле “Тэг” ввести N.') }}
+</p>
+              <p class="lead">{{ _('При поиске по межсентенциальном и внутрисентенциальном уровням действительно только первое поле поиска “Слово”, куда вводится три сентенциальных тэга y (то есть якутский), r (то есть русский), e (то есть английский). Например, чтобы найти все предложения с переключением кода с якутского, выберите слой Межсентенциальный и введите y в поле “Слово”.') }}
+</p>
+              <p class="lead">{{ _('Поисковая выдача устроена таким образом, что для каждого предложения видно, какие в нём есть ЭДЕ, как они переводятся (если ЭДЕ на якутском) и какой у них тэг, а также с какого языка произошло переключение кода (при условии, что оно произошло).') }}</p>
+<p class="lead">{{ _('Каждое предложение выровнено со звуком. Чтобы прослушать предложение, надо нажать на верхний уровень разметки.') }}</p>
+
+            </div>
+          </div>
+
+      </section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="cats">
+        <div class="my-auto">
+          <h3 class="mb-3">{{ _('Список синтаксических категорий') }}</h3>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <table>
+                <tr><td>Межсентенциальные (intersentential)
+</td><td></td></tr>
+<tr><td>IDIOM</td><td>идиома (idiom)</td></tr>
+<tr><td>INTJ</td><td>междометие (interjection)</td></tr>
+<tr><td>QUOTE</td><td>цитирование (quote)</td></tr>
+<tr><td>Внутрисентенциальные (intrasentential)
+</td><td></td></tr>
+<tr><td>ADJ</td><td>прилагательное (adjective)</td></tr>
+<tr><td>ADJP</td><td>группа прилагательного (adjective phrase)</td></tr>
+<tr><td>ADV</td><td>наречие (adverb)</td></tr>
+<tr><td>ADVP</td><td>наречная группа (adverb phrase)</td></tr>
+<tr><td>AUX</td><td>вспомогательный глагол (auxiliary)</td></tr>
+<tr><td>CONJ</td><td>подчиненное придаточное (conjunctive clause)</td></tr>
+<tr><td>COORD</td><td>сочиненное придаточное (coordinate clause)</td></tr>
+<tr><td>IC</td><td>независимая клауза (independent clause)</td></tr>
+<tr><td>MODP</td><td>модальная частица (modal particle)</td></tr>
+<tr><td>N</td><td>существительное (noun)</td></tr>
+<tr><td>NP</td><td>именная группа (noun phrase)</td></tr>
+<tr><td>PP</td><td>предложная группа (prepositional phrase)</td></tr>
+<tr><td>QP</td><td>вопросительная частица (question particle)</td></tr>
+<tr><td>STOP</td><td>обрыв высказывания (utterance abruption)</td></tr>
+<tr><td>V</td><td>глагол (verb)</td></tr>
+<tr><td>VP</td><td>глагольная группа (verb phrase)</td></tr>
+<tr><td>Встречаются в обоих видах (both)
+</td><td></td></tr>
+<tr><td>DE</td><td>дискурсивная единица (discourse entity)</td></tr>
+<tr><td>P</td><td>предлог (preposition)</td></tr>
+<tr><td>PRF</td><td>нецензурная лексика (profanity)</td></tr>
+<tr><td>REP</td><td>повтор фразы (utterance repetition)</td></tr>
+<tr><td>Q</td><td>вопрос (question)</td></tr>
+<tr><td>Язык, на который происходит переключение кода
+</td><td></td></tr>
+<tr><td>r</td><td>русский (Russian)</td></tr>
+<tr><td>y</td><td>якутский (Yakut)</td></tr>
+<tr><td>e</td><td>английский (English)</td></tr>
+<tr><td>Другие обозначения
+</td><td></td></tr>
+<tr><td>=</td><td>обрыв высказывания (phrase break)</td></tr>
+<tr><td>game term</td><td>игровой термин</td></tr>
+<tr><td>{out of the conversation phrase}</td><td>высказывание, произнесенное вне беседы (например, во время телефонного разговора)</td></tr>
+<tr><td>[INDCPH]</td><td>неразборчиво</td></tr>
+
+              </table>
+
+            </div>
+          </div>
+
+      </section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="consist">
+        <div class="my-auto">
+          <h3 class="mb-3">{{ _('Состав корпуса') }}</h3>
+
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <p class="lead">{{ _('Корпус состоит из 10 текстов общей продолжительностью более двух часов, объем корпуса 15 139 слов.') }}</p>
+
+              <p class="lead">{{ _('Участники беседы - 4 билингва с родным якутским языком 1999-2000 года рождения (трое мужчин и одна женщина). Основным критерием отбора информантов был схожий языковой опыт: владение якутским языком с рождения, хорошее владение русским языком и проживание в одном городе. Беседа была записана во время игры в «Монополию» («Монополия» - экономическая стратегическая настольная игра, цель которой – добиться банкротства других игроков, используя стартовый капитал) и в основном выстраивалась вокруг хода игры, однако говорящие также переходили на личные темы.
+') }}</p>
+
+            </div>
+          </div>
+
+      </section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="authors">
+        <div class="my-auto">
+          <h3 class="mb-3">{{ _('Создатели') }}</h3>
+          <p class="lead" align="justify">{{ _('Анна Петухова – запись, расшифровка, разработка разметки, разметка текстов.') }}</p>
+<p class="lead" align="justify">{{ _('Елена Сокур – техническое решение.') }}</p>
+
+      </section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contacts">
+        <div class="my-auto">
+          <h3 class="mb-3">{{ _('Контакты') }}</h3>
+          <p class="lead">{{ _('По содержательным вопросам:') }}<br>
+          {{ _('Анна Петухова') }}: annap2.71828tukhova@gmail.com</p>
+
+          <p class="lead">{{ _('По техническим вопросам:') }}<br>
+          <a href="https://www.hse.ru/staff/sokureo" target="_blank" style="color: #d9241b !important">{{ _('Елена Сокур') }}</a>: elena.o.sokur@gmail.com</p>
+        </div>
+      </section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="cite">
+        <div class="my-auto">
+          <h3 class="mb-3">{{ _('Как процитировать корпус') }}</h3>
+          <p class="lead">{{ _('Если Вы используете данные Корпуса в своём исследовании, воспользуйтесь следующей ссылкой:') }}<br>
+        <div class="panel panel-default">
+          <div class="panel-body" align="justify" style="color: #d9241b !important">{{ _('А.А. Петухова, Е.О. Сокур. 2021. Якутско-русский корпус переключения кода. М.: Международная лаборатория языковой конвергенции, НИУ ВШЭ. (Доступно онлайн по адресу: http://lingconlab.ru/cs_yakut, дата обращения') }} <c id="dateFolder"></c>.)</div>
+            <script language="JavaScript">
+            temp_date = new Date();
+            day = temp_date.getDate();
+            month = temp_date.getMonth() + 1;
+            year = temp_date.getFullYear();
+            if (day < 10) {
+            day = "0" + day;
+            }
+            if (month <10) {
+            month = "0" + month;
+            }
+            document.getElementById('dateFolder').innerHTML = day + "." + month + "." + year;
+            </script>
+          </div>
+        </div>
+      </section>
+
+      <hr class="m-0">
+
+      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="lit">
+        <div class="my-auto">
+          <h3 class="mb-3">{{ _('Литература') }}</h3>
+          <p class="lead">{{ _('Gullberg et al. 2009 – M. Gullberg, P. Indefrey, P. Muysken. Research techniques for the study of code-switching // Cambridge University Press. 2009. P. 21-39.') }}</p>
+
+          <p class="lead">{{ _("Poplack 1980 – S. Poplack. Sometimes I'll start a sentence in Spanish Y TERMINO EN ESPANOL: toward a typology of code-switching // Linguistics. 1980. Vol. 18. P. 581-618.") }}</p>
+        </div>
+      </section>
+
+
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="static/js/resume.min.js"></script>
+
+  </body>
+
+</html>

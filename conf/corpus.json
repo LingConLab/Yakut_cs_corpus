@@ -41,6 +41,8 @@
   "all_language_search_enabled": true,
   "gloss_search_enabled": false,
   "ambiguous_analyses": false,
+  "wf_analyzer_pattern": "[ .,:;?!()/\n]",
+  "fulltext_search_enabled": false,
   "lang_props":
   {
     "yakut":
@@ -78,7 +80,6 @@
           ],
                     [
               {"type": "header", "value": "Intersentential"},
-              {"type": "gramm", "value": "S", "category": "S", "tooltip": "sentence"},
               {"type": "gramm", "value": "INTJ", "category": "INTJ", "tooltip": "interjection"},
               {"type": "gramm", "value": "IDIOM", "category": "IDIOM", "tooltip": "idiom"},
               {"type": "gramm", "value": "QUOTE", "category": "QUOTE", "tooltip": "quote"}

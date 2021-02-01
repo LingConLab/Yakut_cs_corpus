@@ -1798,3 +1798,10 @@ def get_dictionary(lang):
         return render_template(dictFilename)
     except:
         return ''
+
+
+@app.route('/')
+def start_page():
+    return render_template('start_page.html',
+                            locale=get_locale(),
+                            locales=settings['interface_languages'])   
