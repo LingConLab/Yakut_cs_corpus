@@ -187,7 +187,7 @@ document.addEventListener('click', function(event) {
 							{{ _('Sorting:') }} <select name="sort" id="sort" class="search_input">
 								<option value="random" selected>{{ _('random') }}</option>
 								<option value="wf">{{ _('by word (word queries)') }}</option>
-								<option value="lemma">{{ _('by lemma (word queries)') }}</option>
+								<!-- <option value="lemma">{{ _('by lemma (word queries)') }}</option> -->
 								<option value="freq">{{ _('by frequency') }}</option>
 								{% if debug %}
 								<option value="">{{ _('no sorting') }}</option>
@@ -216,15 +216,15 @@ document.addEventListener('click', function(event) {
 							</select>
 						{% endif %}
 						</div>
-						<div class="options_column_leftalign">
-						{{ _('Annotation layers in glossed mode:') }}<br>
-						<input type="checkbox" name="toggle_lemma" data="lex" class="toggle_glossed_layer" id="toggle_lemma" checked> {{ _('Lemma') }}<br>
-						<input type="checkbox" name="toggle_grammar" data="gramm" class="toggle_glossed_layer" id="toggle_grammar" checked> {{ _('Grammar') }}<br>
-{% if gloss_search_enabled %}
-						<input type="checkbox" name="toggle_gloss" data="gloss" class="toggle_glossed_layer" id="toggle_gloss" checked> {{ _('Gloss') }}<br>
-{% endif %}
-						<input type="checkbox" name="toggle_additional_ana_fields" data="field_ana_other" class="toggle_glossed_layer" id="toggle_additional_ana_fields" checked> {{ _('Additional fields') }}<br>
-						</div>
+						<!-- <div class="options_column_leftalign"> -->
+						<!-- {{ _('Annotation layers in glossed mode:') }}<br> -->
+						<!-- <input type="checkbox" name="toggle_lemma" data="lex" class="toggle_glossed_layer" id="toggle_lemma" checked> {{ _('Lemma') }}<br> -->
+						<!-- <input type="checkbox" name="toggle_grammar" data="gramm" class="toggle_glossed_layer" id="toggle_grammar" checked> {{ _('Grammar') }}<br> -->
+<!-- {% if gloss_search_enabled %} -->
+						<!-- <input type="checkbox" name="toggle_gloss" data="gloss" class="toggle_glossed_layer" id="toggle_gloss" checked> {{ _('Gloss') }}<br> -->
+<!-- {% endif %} -->/
+						<!-- <input type="checkbox" name="toggle_additional_ana_fields" data="field_ana_other" class="toggle_glossed_layer" id="toggle_additional_ana_fields" checked> {{ _('Additional fields') }}<br> -->
+						<!-- </div> -->
 					</div>
 				</div>
 			</div>
@@ -235,7 +235,7 @@ document.addEventListener('click', function(event) {
 			<div class="btn-group">
 			<button type="button" class="btn btn-default btn-primary" aria-label="{{ _('Search sentences') }}" value="{{ _('Search sentences') }}" id="search_sent" onclick="$('#popover_wf').fadeOut('fast');">{{ _('Search sentences') }}</button>
 			<button onclick="$('#popover_wf').fadeOut('fast');" type="button" class="btn btn-default btn-primary" aria-label="{{ _('Search words') }}" value="{{ _('Search words') }}" id="search_word" style="padding-right: 5px;">{{ _('Search words') }}</button>
-			<button onclick="$('#popover_wf').fadeOut('fast');" type="button" class="btn btn-default btn-primary" aria-label="{{ _('Search lemmata') }}" value="{{ _('Search lemmata') }}" id="search_lemma" style="padding-left: 5px;">{{ _('Search lemmata') }}</button>
+			<!-- <button onclick="$('#popover_wf').fadeOut('fast');" type="button" class="btn btn-default btn-primary" aria-label="{{ _('Search lemmata') }}" value="{{ _('Search lemmata') }}" id="search_lemma" style="padding-left: 5px;">{{ _('Search lemmata') }}</button> -->
 			<button onclick="$('#popover_wf').fadeOut('fast');" type="button" class="btn btn-default btn-primary" aria-label="{{ _('Words statistics') }}" value="{{ _('Words statistics') }}" id="show_word_stat"><span class="stat_w glyphicon glyphicon-stats"> </span></button>
 			</div>
 			<button onclick="$('#popover_wf').fadeOut('fast');" type="button" class="btn btn-default btn-info" aria-label="{{ _('Select subcorpus') }}" value="{{ _('Select subcorpus') }}" id="search_doc"><span class="subcorpus_selector_link">{{ _('Select subcorpus') }}</span></button>
@@ -247,11 +247,11 @@ document.addEventListener('click', function(event) {
 				<br>
 				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search sentences (q)" id="search_sent_query" style="width:200px;">Search sentences (show query)</button>
 				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search words (q)" id="search_word_query" style="width:200px;">Search words (show query)</button>
-				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search lemmata (q)" id="search_lemma_query" style="width:200px;">Search lemmata (show query)</button>
+				<!-- <button onclick="$('#popover_wf').fadeOut('fast');" value="Search lemmata (q)" id="search_lemma_query" style="width:200px;">Search lemmata (show query)</button> -->
 				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search documents (q)" id="search_doc_query" style="width:200px;">Search documents (show query)</button><br>
 				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search sentences (r)" id="search_sent_json" style="width:200px;">Search sentences (show JSON response)</button>
 				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search words (r)" id="search_word_json" style="width:200px;">Search words (show JSON response)</button>
-				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search lemmata (r)" id="search_lemma_json" style="width:200px;">Search lemmata (show JSON response)</button>
+				<!-- <button onclick="$('#popover_wf').fadeOut('fast');" value="Search lemmata (r)" id="search_lemma_json" style="width:200px;">Search lemmata (show JSON response)</button> -->
 				<button onclick="$('#popover_wf').fadeOut('fast');" value="Search documents (r)" id="search_doc_json" style="width:200px;">Search documents (show JSON response)</button>
 			{% endif %}
 		</div>
