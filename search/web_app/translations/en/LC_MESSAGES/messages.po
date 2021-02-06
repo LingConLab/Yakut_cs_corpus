@@ -979,3 +979,224 @@ msgstr "If you want to share your query with someone, send them the text you see
 
 msgid "Here you can load a corpus query someone sent you. Please enter the query below:"
 msgstr "Here you can load a corpus query someone sent you. Please enter the query below:"
+
+
+msgid "Главная"
+msgstr "Home"
+
+msgid "Транслитерация"
+msgstr "Transliteration"
+
+msgid "Как пользоваться корпусом"
+msgstr "Instruction"
+
+msgid "Поиск"
+msgstr "Search"
+
+msgid "Состав корпуса"
+msgstr "Corpus Composition"
+
+msgid "Создатели"
+msgstr "Project participants"
+
+msgid "Устный корпус абазинского языка"
+msgstr "Spoken corpus of Abaza"
+
+msgid "дер. Рахметово и с. Баимово"
+msgstr "(Rakhmetovo and Baimovo)"
+
+msgid "К поиску"
+msgstr "Search"
+
+msgid "Контакты"
+msgstr "Contacts"
+
+msgid "По содержательным вопросам:"
+msgstr "You may contact us with questions about the Corpus:"
+
+msgid "По техническим вопросам:"
+msgstr "Or with questions about the search platform:"
+
+msgid "Елена Сокур"
+msgstr "Elena Sokur"
+
+msgid "Как процитировать корпус"
+msgstr "How to cite the corpus"
+
+msgid "Если Вы используете данные Корпуса в своём исследовании, воспользуйтесь следующей ссылкой:"
+msgstr "If you use data from the Spoken corpus of Abaza in your research, please cite as follows:"
+
+
+msgid "Список синтаксических категорий"
+msgstr "List of syntactic categories"
+
+msgid "Литература"
+msgstr "References"
+
+msgid "Якутско-русский корпус"
+msgstr "Yakut-Russian"
+
+msgid "переключения кода"
+msgstr "Code-Switching Corpus"
+
+msgid "Переключение кода — чередование двух языков в пределах дискурса — характерная черта языкового поведения билингвов. В России билингвизм особенно распространен на территории республик, где наряду с русским язык титульной нации может быть утвержден на государственном уровне. Предыдущие исследования по переключению кода (например, Poplack 1980) показали, что использование данных, полученных при записи спонтанной речи билингвов, является важным аспектом инструментом для изучения переключения кода. Тем не менее, корпусов билингвальной речи в открытом доступе практически нет, что объясняется высокой трудоемкостью создания такого корпуса (Gullberg et al. 2009). Корпус представляет собой запись беседы якутско-русских билингвов, записанной в декабре 2018 года в г. Якутске в ходе игры в “Монополию”. Корпус состоит из аудиофайлов и выровненных со звуком  расшифровок, размеченных по ряду признаков."
+msgstr "Code-Switching — the alternation of two languages within a discourse — is a distinctive feature of bilingual language behaviour. In Russia bilingualism is especially common in the republics where the language of the titular nation is approved at the state level alongside Russian. Previous studies on code-switching (for example, Poplack 1980) have shown that data obtained by recording spontaneous speech of bilinguals is an important tool for studying code-switching. Nevertheless, there are practically no bilingual speech corpora in the public domain, which can be explained by the difficulties of creating such a corpus (Gullberg et al. 2009). The corpus is based on audio data gathered in December 2018 in Yakutsk, during a conversation between Yakut-Russian bilinguals while playing the board game “Monopoly”. The corpus consists of audio files and audio-aligned transcripts, annotated for a number of attributes."
+
+msgid "Стратегия разметки корпуса разработана А. Петуховой в ходе проекта, осуществленного в Школе лингвистики НИУ ВШЭ."
+msgstr "The corpus annotation strategy was developed by A. Petukhova in the course of a project implemented at the School of Linguistics, NRU HSE."
+
+msgid "Для каждого говорящего размечены: высказывание — элементарная дискурсивная единица (ЭДЕ), слова на русском языке, слова на якутском языке (а также их перевод на русский язык) и синтаксические категории составляющих на границе переключения кода (см. Список синтаксических категорий). Отдельно были отмечены высказывания, произнесенные вне беседы, например, во время телефонного разговора, и высказывания, представляющие собой специальные термины игры и чтение вслух правил игры и игральных карточек . Так как информантам была предоставлена русскоязычная версия «Монополии», и язык игры был изначально задан, у говорящих не было возможности свободно выбирать язык игровой партии. Высказывания, относящиеся к игре, не принадлежат какому-либо языку. Фразы на якутском языке снабжены переводом."
+msgstr "For each of the speakers were annotated: statement — elementary discourse unit (EDU), words in Russian, words in Yakut (as well as their translation into Russian) and the syntactic category of the constituents at the code-switching boundary (see List of syntactic categories). Utterances made outside of the conversation, such as during a telephone conversation, and utterances made while reading aloud playing cards and the rules of the game were marked separately. Since the informants were given a Russian-language version of Monopoly, and the language of the game was initially set, the speakers did not have the opportunity to freely choose the language of the game party. Utterances related to the game therefore do not belong to any language. Utterances in Yakut are provided with a translation."
+
+msgid "Проект Якутско-русского корпуса переключения кода поддерживается "
+msgstr "The project of the Yakut-Russian Code-Switching corpus is supported by the "
+
+msgid "Международной лабораторией языковой конвергенции Высшей Школы Экономики"
+msgstr "International Language Convergence Laboratory of the Higher School of Economics"
+
+
+msgid ". Корпус создан в рамках Программы фундаментальных исследований Национального исследовательского университета «Высшая школа экономики» (НИУ ВШЭ) и с использованием средств субсидии в рамках государственной поддержки ведущих университетов Российской Федерации «5-100»."
+msgstr ". The corpus was created within the framework of the Basic Research Program of the National Research University "Higher School of Economics" (NRU HSE) and with the aid of a grant under the state support of the leading universities of the Russian Federation "5-100"."
+
+
+msgid "Этот корпус относится к группе корпусов, использующих поисковую платформу"
+msgstr "This corpus is one of a group that uses the search platform"
+
+msgid "Инструкция с описанием общих технических возможностей поиска в корпусах этого типа содержится в разделе «Справка» (кнопка с вопросительным знаком в правом верхнем углу страницы поиска). Ниже описаны некоторые правила, специфические для данного корпуса."
+msgstr "Instructions with a description of the general technical capabilities of the search function in a corpus of this type can be found in the “Information” section (link with a question mark in the upper right corner of the search page). Below are a few rules specific to this corpus."
+
+msgid "Поиск по корпусу представлен в трёх уровнях разметки: якутский, межсентенциальный (переключение кода между высказываниями), внутрисентенциальный (переключение кода внутри высказывания). При поиске по якутскому языку можно искать по точному вхождению (словоформе) внутри ЭДЕ, по точному вхождению в переводе ЭДЕ и по синтаксическим категориям (о них см. раздел “Список синтаксических категорий”). Например, чтобы найти все слова на букву к, которые имеют категорию N (существительное), надо в поле “Слово” ввести к*, а в поле “Тэг” ввести N."
+msgstr "The corpus search is divided into three levels of annotation: Yakut, intersentential (code-switching between utterances), and intrasentential (code-switching within an utterance). When searching on the Yakut language level, you can search for the exact occurrence (word form) within an EDU, for the exact occurrence in the translation of an EDU and for syntactic categories (see “List of syntactic categories”). For example, to find all words starting with the letter k that have the category N (noun), enter k* in the “Word" field, and enter N in the “Tag” field."
+
+msgid "При поиске по межсентенциальном и внутрисентенциальном уровням действительно только первое поле поиска “Слово”, куда вводится три сентенциальных тэга y (то есть якутский), r (то есть русский), e (то есть английский). Например, чтобы найти все предложения с переключением кода с якутского, выберите слой Межсентенциальный и введите y в поле “Слово”."
+msgstr "When searching on the intersentential and intrasentential levels, only the first search field “Word” is valid, where three sentential tags are entered: y (i.e. Yakut), r (i.e. Russian), and e (i.e. English). For example, to find all sentences with code-switching to Yakut, select the Intersentential layer and enter y in the “Word” field."
+
+msgid "Поисковая выдача устроена таким образом, что для каждого предложения видно, какие в нём есть ЭДЕ, как они переводятся (если ЭДЕ на якутском) и какой у них тэг, а также с какого языка произошло переключение кода (при условии, что оно произошло)."
+msgstr "The search results are arranged in such a way that for each sentence you can see what EDUs are in it, how they are translated (if the EDUs are in Yakut) and what tag they have, as well as from which language the code was switched (provided that it happened).
+"
+
+msgid "Каждое предложение выровнено со звуком. Чтобы прослушать предложение, надо нажать на верхний уровень разметки."
+msgstr "Each sentence is aligned with the sound. To listen to the sentence, click on the top level of the annotation."
+
+msgid "Корпус состоит из 10 текстов общей продолжительностью более двух часов, объем корпуса 15 139 слов."
+msgstr "The corpus consists of 10 texts with a total of more than 15,000 words. The total duration of the audio data is 146 minutes."
+
+msgid "Участники беседы - 4 билингва с родным якутским языком 1999-2000 года рождения (трое мужчин и одна женщина). Основным критерием отбора информантов был схожий языковой опыт: владение якутским языком с рождения, хорошее владение русским языком и проживание в одном городе. Беседа была записана во время игры в «Монополию» («Монополия» - экономическая стратегическая настольная игра, цель которой – добиться банкротства других игроков, используя стартовый капитал) и в основном выстраивалась вокруг хода игры, однако говорящие также переходили на личные темы."
+msgstr "The participants of the conversation are four bilingual native speakers of Yakut born in 1999-2000 (three men and one woman). Similar language background was the main criterion for selecting the participants: Yakut as a first language, good command of Russian, and living in the same city. The conversation was recorded during a game of "Monopoly” ("Monopoly" is an economic strategy board game that aims to make other players bankrupt using the initial capital) and was mostly built around the course of the game, although the speakers also switched to personal topics."
+
+msgid "Анна Петухова – запись, расшифровка, разработка разметки, разметка текстов."
+msgstr "Anna Petukhova – recording, decoding, markup development, text markup."
+
+msgid "Елена Сокур – техническое решение."
+msgstr "Elena Sokur – technical solution."
+
+msgid "Анна Петухова"
+msgstr "Anna Petukhova"
+
+msgid "А.А. Петухова, Е.О. Сокур. 2021. Якутско-русский корпус переключения кода. М.: Международная лаборатория языковой конвергенции, НИУ ВШЭ. (Доступно онлайн по адресу: http://lingconlab.ru/cs_yakut, дата обращения"
+msgstr "A. A. Petukhova, E. O. Sokur. 2021. Yakut-Russian Corpus of Code-Switching, Moscow: International Laboratory of Language Convergence, Higher School of Economics. (Available online at: http://lingconlab.ru/cs_yakut, accessed on"
+
+msgid "Межсентенциальные"
+msgstr "Intersentential"
+
+msgid "Внутрисентенциальные"
+msgstr "Intrasentential"
+
+msgid "Встречаются в обоих видах"
+msgstr "Both"
+
+msgid "Язык, на который происходит переключение кода"
+msgstr "The language to which the code is switched"
+
+msgid "Другие обозначения"
+msgstr "Other notation"
+
+msgid "идиома"
+msgstr "idiom"
+
+msgid "междометие"
+msgstr "interjection"
+
+msgid "цитирование"
+msgstr "quote"
+
+msgid "прилагательное"
+msgstr "adjective"
+
+msgid "группа прилагательного"
+msgstr "adjective phrase"
+
+msgid "наречие"
+msgstr "adverb"
+
+msgid "наречная группа"
+msgstr "adverb phrase"
+
+msgid "вспомогательный глагол"
+msgstr "auxiliary"
+
+msgid "подчиненное придаточное"
+msgstr "conjunctive clause"
+
+msgid "сочиненное придаточное"
+msgstr "coordinate clause"
+
+msgid "независимая клауза"
+msgstr "independent clause"
+
+msgid "модальная частица"
+msgstr "modal particle"
+
+msgid "существительное"
+msgstr "noun"
+
+msgid "именная группа"
+msgstr "noun phrase"
+
+msgid "предложная группа"
+msgstr "prepositional phrase"
+
+msgid "вопросительная частица"
+msgstr "question particle"
+
+msgid "обрыв высказывания"
+msgstr "utterance interruption"
+
+msgid "глагол"
+msgstr "verb"
+
+msgid "глагольная группа"
+msgstr "verb phrase"
+
+msgid "дискурсивная единица"
+msgstr "discourse entity"
+
+msgid "предлог"
+msgstr "preposition"
+
+msgid "повтор фразы"
+msgstr "utterance repetition"
+
+msgid "вопрос"
+msgstr "question"
+
+msgid "русский"
+msgstr "Russian"
+
+msgid "якутский"
+msgstr "Yakut"
+
+msgid "английский"
+msgstr "English"
+
+msgid "обрыв высказывания"
+msgstr "phrase break"
+
+msgid "игровой термин"
+msgstr "game term"
+
+msgid "высказывание, произнесенное вне беседы (например, во время телефонного разговора)"
+msgstr "utterance uttered outside of the conversation (for example, during a telephone conversation)"
+
+msgid "неразборчиво"
+msgstr "indecipherable"
